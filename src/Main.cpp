@@ -16,7 +16,7 @@ int main()
     shape.setTexture(&shapeTexture);
 
     sf::Sprite sfmlLogo = sf::Sprite(shapeTexture);
-
+    
     sf::Clock clock;
     clock.restart();
     sf::Time prevTime = clock.getElapsedTime();

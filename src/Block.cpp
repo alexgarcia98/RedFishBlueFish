@@ -1,14 +1,16 @@
 #include "Block.hpp"
+#include "ResourceManager.hpp"
 
-Block::Block(Block::Blocks blockType, sf::Vector2f worldPos, int surroundings) {
+std::vector<std::string> Block::textures={
+    "",
+    "",
+    "",
+};
+
+Block::Block(int blockType, sf::Vector2f worldPos, int surroundings) {
     spr.setPosition(worldPos);
-    switch(blockType) {
-        case EMPTY:
-            break;
-        case BLOCK:
-            {
-                
-            }
-            break;
+    if(blockType>=BLOCK) {
+        //block
+        spr.setTexture(ResourceManager::getTexture(textures[blockType]));
     }
 }

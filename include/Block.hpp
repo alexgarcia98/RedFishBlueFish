@@ -8,12 +8,18 @@ class Block {
 public:
 	enum Blocks {
 		EMPTY,
-		BLOCK
+		BLOCK,
+		DEATH,
 	} type;
 private:
+	static std::vector<std::string> textures;
+
 	sf::Sprite spr;
 public:
-	Block(Block::Blocks blockType, sf::Vector2f worldPos, int surroundings);
+	Block(int blockType, sf::Vector2f worldPos, int surroundings);
+	sf::FloatRect getBounds() {
+		return spr.getGlobalBounds();
+	}
 	void draw(sf::RenderTarget& window) {
 		if(type!=EMPTY) {
 			window.draw(spr);
