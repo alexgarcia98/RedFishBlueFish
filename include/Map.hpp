@@ -1,20 +1,29 @@
+#ifndef MAP_HPP
+#define MAP_HPP
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Block.hpp"
 
 class Map {
+	std::vector<Block> blocks;
+	sf::Vector2u size;
+	std::size_t transvape(sf::Vector2i pos) const {
+		return pos.y*size.x+pos.x;
+	}
 public:
-	const Block& operator[](sf::Vector2i pos) const;
-	Block& operator[](sf::Vector2i pos);
-
-public:
-
+	Map(sf::Vector2u size):size(size) {
+		blocks.reserve(size.x*size.y);
+	}
+	const Block& operator[](sf::Vector2i pos) const {
+		return blocks[transvape(pos)];
+	}
+	Block& operator[](sf::Vector2i pos) {
+		return blocks[transvape(pos)];
+	}
+	sf::Vector2u getSize() const {
+		return size;
+	}
 };
 
-void f() {
-	Map gameMap;::Vector2i(2, 3)].setX(5);
-	const Map
-	gameMap[sfconstantGameMap;
-
-	constantGameMap[sf::Vector2i(2, 3)].getX();
-}
+#endif //MAP_HPP
