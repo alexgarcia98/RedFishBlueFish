@@ -1,6 +1,6 @@
-#include "ResourceManager.hpp"
+// #include "ResourceManager.hpp"
 
-TextureManager ResourceManager::tm;
+// TextureManager ResourceManager::tm;
 
-SoundFXManager ResourceManager::sm;
+// SoundFXManager ResourceManager::sm;
 
