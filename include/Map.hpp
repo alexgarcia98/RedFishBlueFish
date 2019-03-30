@@ -24,6 +24,13 @@ public:
 	sf::Vector2u getSize() const {
 		return size;
 	}
+	void draw(sf::RenderTarget& window, sf::FloatRect bounds) {
+		for(int i=0;i<blocks.size();i++) {
+			if(bounds.intersects(blocks[i].getBounds())) {
+				blocks[i].draw(window);
+			}
+		}
+	}
 };
 
 #endif //MAP_HPP
